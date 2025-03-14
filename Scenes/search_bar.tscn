@@ -1,0 +1,64 @@
+[gd_scene load_steps=8 format=3 uid="uid://bqp6sxwubltap"]
+
+[ext_resource type="Script" uid="uid://bjgetravohqyt" path="res://Scripts/search_bar.gd" id="1_jgfpo"]
+[ext_resource type="Texture2D" uid="uid://rqgirm5gks8k" path="res://Images/SearchBar.png" id="1_n440p"]
+[ext_resource type="Texture2D" uid="uid://okntn0emlp71" path="res://Images/SearchIcon.png" id="2_jgfpo"]
+[ext_resource type="FontFile" uid="uid://160lhxwqu6vg" path="res://Fonts/Inter/Inter_28pt-Regular.ttf" id="3_w5lqh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jgfpo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w5lqh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ik2bw"]
+
+[node name="SearchBar" type="Control" node_paths=PackedStringArray("placeholder", "editableText")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_jgfpo")
+placeholder = NodePath("Placeholder")
+editableText = NodePath("LineEdit")
+
+[node name="SearchBarSprite" type="Sprite2D" parent="."]
+position = Vector2(269.5, 31.5)
+texture = ExtResource("1_n440p")
+
+[node name="Placeholder" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SearchIconSprite" type="Sprite2D" parent="Placeholder"]
+position = Vector2(35, 32.5)
+scale = Vector2(0.779412, 0.779412)
+texture = ExtResource("2_jgfpo")
+
+[node name="SearchLabel" type="RichTextLabel" parent="Placeholder"]
+modulate = Color(0.717647, 0.717647, 0.717647, 1)
+layout_mode = 0
+offset_left = 74.0
+offset_top = 8.5
+offset_right = 256.0
+offset_bottom = 70.5
+theme_override_fonts/normal_font = ExtResource("3_w5lqh")
+theme_override_font_sizes/normal_font_size = 36
+text = "Search"
+fit_content = true
+
+[node name="LineEdit" type="LineEdit" parent="."]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 34.0
+offset_top = 5.0
+offset_right = 520.0
+offset_bottom = 57.0
+theme_override_fonts/font = ExtResource("3_w5lqh")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jgfpo")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_w5lqh")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ik2bw")
+context_menu_enabled = false
+flat = true
+
+[connection signal="editing_toggled" from="LineEdit" to="." method="_on_line_edit_editing_toggled"]

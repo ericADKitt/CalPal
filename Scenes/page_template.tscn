@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=3 uid="uid://he2yuwd0o60e"]
+
+[ext_resource type="Script" uid="uid://mg03vya3d5u2" path="res://Scripts/page_template.gd" id="1_ojo4b"]
+[ext_resource type="Texture2D" uid="uid://cnuy0lwyod8ql" path="res://Images/FullBG.png" id="2_hyb5y"]
+[ext_resource type="PackedScene" uid="uid://c661e0gm0flq7" path="res://Scenes/Title.tscn" id="3_xtt8g"]
+[ext_resource type="PackedScene" uid="uid://bqp6sxwubltap" path="res://Scenes/search_bar.tscn" id="4_70yqx"]
+[ext_resource type="PackedScene" uid="uid://bvh14muutggx4" path="res://Scenes/add_icon.tscn" id="5_d3wnp"]
+[ext_resource type="PackedScene" uid="uid://p865k1ypydb5" path="res://Scenes/label_list.tscn" id="6_4ctuh"]
+
+[node name="PageTemplate" type="Control" node_paths=PackedStringArray("Background", "TitleText", "AddIcon", "LabelList")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ojo4b")
+Background = NodePath("FullBG")
+TitleText = NodePath("TitleText")
+AddIcon = NodePath("AddIcon")
+LabelList = NodePath("LabelList")
+
+[node name="FullBG" type="Sprite2D" parent="."]
+position = Vector2(324, 576)
+texture = ExtResource("2_hyb5y")
+region_enabled = true
+region_rect = Rect2(0, 0, 648, 1152)
+
+[node name="TitleText" parent="." instance=ExtResource("3_xtt8g")]
+layout_mode = 0
+offset_left = 62.5
+offset_top = 118.0
+offset_right = 444.5
+offset_bottom = 198.0
+text = "Something"
+
+[node name="SearchBar" parent="." instance=ExtResource("4_70yqx")]
+offset_left = 62.5
+offset_top = 239.0
+offset_right = 102.5
+offset_bottom = 279.0
+
+[node name="AddIcon" parent="." instance=ExtResource("5_d3wnp")]
+offset_left = 62.5
+offset_top = 345.0
+offset_right = 102.5
+offset_bottom = 385.0
+text = "Add Schedule"
+
+[node name="LabelList" parent="." instance=ExtResource("6_4ctuh")]
+offset_left = 62.5
+offset_top = 502.0
+offset_right = 102.5
+offset_bottom = 542.0

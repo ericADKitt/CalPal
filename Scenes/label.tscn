@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://di16655wxogs4"]
+
+[ext_resource type="Texture2D" uid="uid://be0q36w54gs7r" path="res://Images/RedLabel.png" id="1_f2qpl"]
+[ext_resource type="Script" uid="uid://dnihwuc4avj2d" path="res://Scripts/label.gd" id="1_f7cmw"]
+[ext_resource type="FontFile" uid="uid://bd7cl5roml5qs" path="res://Fonts/Inter/Inter_28pt-Bold.ttf" id="2_f7cmw"]
+
+[node name="Label" type="Control" node_paths=PackedStringArray("LabelTitle")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_f7cmw")
+LabelTitle = NodePath("LabelTitle")
+
+[node name="LabelSprite" type="Sprite2D" parent="."]
+position = Vector2(202, 40.75)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_f2qpl")
+
+[node name="LabelTitle" type="RichTextLabel" parent="."]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 69.0
+offset_top = 14.75
+offset_right = 657.0
+offset_bottom = 107.75
+theme_override_fonts/normal_font = ExtResource("2_f7cmw")
+theme_override_font_sizes/normal_font_size = 38
+text = "Title"
+fit_content = true

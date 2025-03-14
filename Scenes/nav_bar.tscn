@@ -1,0 +1,67 @@
+[gd_scene load_steps=8 format=3 uid="uid://cik6ivr50fght"]
+
+[ext_resource type="Script" uid="uid://dlwmf12e8g7xr" path="res://Scripts/nav_bar.gd" id="1_uqdjf"]
+[ext_resource type="Texture2D" uid="uid://cx2dpuusgboip" path="res://Images/ScheduleIcon_Hollow.png" id="2_xxm3e"]
+[ext_resource type="Texture2D" uid="uid://dc1w2agj3pfei" path="res://Images/ScheduleIcon_Solid.png" id="3_iosv3"]
+[ext_resource type="Texture2D" uid="uid://bhxw5gxvydplq" path="res://Images/FriendIcon_Hollow.png" id="4_iuhsn"]
+[ext_resource type="Texture2D" uid="uid://dwuey6rpmnbva" path="res://Images/FriendIcon_Solid.png" id="5_gs7ya"]
+[ext_resource type="Texture2D" uid="uid://ff3iwtxlkeag" path="res://Images/GroupIcon_Hollow.png" id="6_083mp"]
+[ext_resource type="Texture2D" uid="uid://bibpl7wjh0pe4" path="res://Images/GroupIcon_Solid.png" id="7_degqp"]
+
+[node name="NavBar" type="Control" node_paths=PackedStringArray("scheduleIcon", "friendIcon", "groupIcon")]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 992.0
+offset_right = 40.0
+offset_bottom = 1032.0
+script = ExtResource("1_uqdjf")
+scheduleIcon = NodePath("ScheduleIcon")
+friendIcon = NodePath("FriendIcon")
+groupIcon = NodePath("GroupIcon")
+scheduleHollowTexture = ExtResource("2_xxm3e")
+scheduleSolidTexture = ExtResource("3_iosv3")
+friendHollowTexture = ExtResource("4_iuhsn")
+friendSolidTexture = ExtResource("5_gs7ya")
+groupHollowTexture = ExtResource("6_083mp")
+groupSolidTexture = ExtResource("7_degqp")
+
+[node name="ScheduleIcon" type="Sprite2D" parent="."]
+position = Vector2(100, 81)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_xxm3e")
+
+[node name="SchedulesButton" type="Button" parent="ScheduleIcon"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -232.0
+offset_top = -212.0
+offset_right = 244.0
+offset_bottom = 204.0
+
+[node name="FriendIcon" type="Sprite2D" parent="."]
+position = Vector2(328, 81)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_iuhsn")
+
+[node name="FriendsButton" type="Button" parent="FriendIcon"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -200.0
+offset_top = -228.0
+offset_right = 220.0
+offset_bottom = 188.0
+metadata/_edit_use_anchors_ = true
+
+[node name="GroupIcon" type="Sprite2D" parent="."]
+position = Vector2(540, 81)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("6_083mp")
+
+[node name="GroupsButton" type="Button" parent="GroupIcon"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -276.0
+offset_top = -168.0
+offset_right = 276.0
+offset_bottom = 156.0
+
+[connection signal="pressed" from="ScheduleIcon/SchedulesButton" to="." method="_on_schedules_button_pressed"]
+[connection signal="pressed" from="FriendIcon/FriendsButton" to="." method="_on_friends_button_pressed"]
+[connection signal="pressed" from="GroupIcon/GroupsButton" to="." method="_on_groups_button_pressed"]

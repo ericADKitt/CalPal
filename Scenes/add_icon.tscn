@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://bvh14muutggx4"]
+
+[ext_resource type="Texture2D" uid="uid://crvvif672c5qp" path="res://Images/AddIcon.png" id="1_a0yuf"]
+[ext_resource type="Script" uid="uid://dc3twrtjcuuh7" path="res://Scripts/add_icon.gd" id="1_llxug"]
+[ext_resource type="FontFile" uid="uid://bd7cl5roml5qs" path="res://Fonts/Inter/Inter_28pt-Bold.ttf" id="2_llxug"]
+
+[node name="AddIcon" type="Control" node_paths=PackedStringArray("label")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_llxug")
+label = NodePath("AddLabel")
+
+[node name="AddIconSprite" type="Sprite2D" parent="."]
+position = Vector2(50.5, 50.5)
+texture = ExtResource("1_a0yuf")
+
+[node name="AddLabel" type="RichTextLabel" parent="."]
+modulate = Color(0.466667, 0.466667, 0.466667, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.2625
+anchor_top = 1.2625
+anchor_right = 1.2625
+anchor_bottom = 1.2625
+offset_left = 71.0
+offset_top = -30.0
+offset_right = 585.0
+offset_bottom = 50.0
+theme_override_fonts/normal_font = ExtResource("2_llxug")
+theme_override_font_sizes/normal_font_size = 50
+text = "Add Something"
+fit_content = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 482.0
+offset_bottom = 105.0
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
