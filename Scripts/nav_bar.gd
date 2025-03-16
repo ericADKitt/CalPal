@@ -6,6 +6,8 @@ const ICON_STATES : int = 2
 @export var friendIcon : Node
 @export var groupIcon : Node
 
+@export var background : Node
+
 @export var scheduleHollowTexture : Resource
 @export var scheduleSolidTexture : Resource
 
@@ -15,9 +17,8 @@ const ICON_STATES : int = 2
 @export var groupHollowTexture : Resource
 @export var groupSolidTexture : Resource
 
-enum Page { SCHEDULES, FRIENDS, GROUPS }
 
-@export var pageIndex : Page = Page.SCHEDULES
+@export var pageIndex : int = 0
 
 
 var icons : Array[Node]
@@ -32,13 +33,18 @@ func _ready():
 	
 	correctIconTextures()
 
-
-func updatePage(pageIndex : Page):
+func updatePage(pageIndex : int):
 	if self.pageIndex != pageIndex:
-		setPageIndex(pageIndex)
-		correctIconTextures()
+		get_parent().changePage(pageIndex)
+		updateBar(pageIndex)
 
-func setPageIndex(pageIndex : Page):
+func updateBar(pageIndex : int):
+	setPageIndex(pageIndex)
+	correctIconTextures()
+	
+	background.region_rect.position.x = pageIndex * background.region_rect.size.x
+
+func setPageIndex(pageIndex : int):
 	self.pageIndex = pageIndex
 
 func correctIconTextures():
@@ -47,10 +53,10 @@ func correctIconTextures():
 
 
 func _on_schedules_button_pressed() -> void:
-	updatePage(Page.SCHEDULES)
+	updatePage(0)
 
 func _on_friends_button_pressed() -> void:
-	updatePage(Page.FRIENDS)
+	updatePage(1)
 
 func _on_groups_button_pressed() -> void:
-	updatePage(Page.GROUPS)
+	updatePage(2)
