@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://c3q7fie8ewjwc"]
+
+[ext_resource type="Script" uid="uid://dohp1rj2sb3md" path="res://Scripts/text_bar.gd" id="1_rsax3"]
+[ext_resource type="Texture2D" uid="uid://cb27721vywyhu" path="res://Images/TextBar.png" id="2_rsax3"]
+[ext_resource type="FontFile" uid="uid://160lhxwqu6vg" path="res://Fonts/Inter/Inter_28pt-Regular.ttf" id="3_5oshp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qlucs"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g2yyo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ijaa7"]
+
+[node name="TextBar" type="Control" node_paths=PackedStringArray("searchBarSprite", "lineEdit")]
+layout_mode = 3
+anchor_right = 0.673
+anchor_bottom = 0.055
+offset_right = -0.104034
+offset_bottom = -0.360004
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rsax3")
+searchBarSprite = NodePath("SearchBarSprite")
+lineEdit = NodePath("LineEdit")
+
+[node name="SearchBarSprite" type="Sprite2D" parent="."]
+position = Vector2(218, 31.5)
+texture = ExtResource("2_rsax3")
+
+[node name="LineEdit" type="LineEdit" parent="."]
+modulate = Color(0, 0, 0, 1)
+offset_left = 26.0
+offset_top = 5.0
+offset_right = 411.0
+offset_bottom = 57.0
+theme_override_fonts/font = ExtResource("3_5oshp")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qlucs")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_g2yyo")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ijaa7")
+context_menu_enabled = false
+flat = true

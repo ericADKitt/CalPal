@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://b5pks02opduq2"]
+
+[ext_resource type="Script" uid="uid://c3vywkvgsbpps" path="res://Scripts/pop_up_template.gd" id="1_tbwui"]
+[ext_resource type="Texture2D" uid="uid://iodkmhyil5vi" path="res://Images/MenuBox.png" id="2_jrich"]
+[ext_resource type="FontFile" uid="uid://bd7cl5roml5qs" path="res://Fonts/Inter/Inter_28pt-Bold.ttf" id="3_dc1bg"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_bwmib"]
+
+[node name="PopUpTemplate" type="Control" node_paths=PackedStringArray("title")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tbwui")
+title = NodePath("Title")
+boxTopLeft = Vector2(57, 309)
+boxBottomRight = Vector2(591, 843)
+
+[node name="BGDarkener" type="Sprite2D" parent="."]
+modulate = Color(0.494118, 0.494118, 0.494118, 0.466667)
+z_index = 30
+position = Vector2(324, 576)
+texture = SubResource("CanvasTexture_bwmib")
+region_enabled = true
+region_rect = Rect2(0, 0, 648, 1152)
+
+[node name="MenuBox" type="Sprite2D" parent="."]
+z_index = 31
+position = Vector2(324, 576)
+texture = ExtResource("2_jrich")
+
+[node name="Title" type="RichTextLabel" parent="."]
+modulate = Color(0, 0, 0, 1)
+z_index = 32
+offset_left = 93.0
+offset_top = 324.0
+offset_right = 452.0
+offset_bottom = 384.0
+theme_override_fonts/normal_font = ExtResource("3_dc1bg")
+theme_override_font_sizes/normal_font_size = 38
+text = "Title"
+fit_content = true
+vertical_alignment = 2
