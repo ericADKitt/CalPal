@@ -6,3 +6,6 @@ func _ready():
 	pageTemplate.setTitle("Schedules")
 	pageTemplate.setBGOffset(0)
 	pageTemplate.setAddText("Add Schedule")
+
+func addButtonClicked():
+	pass

@@ -7,14 +7,14 @@ extends Control
 
 
 func setBGOffset(offset : int):
-	Background.region_rect.x = offset * Background.region_rect.w / 3
+	Background.region_rect.position.x = offset * Background.region_rect.size.x
 
 func setTitle(title):
 	TitleText.text = title
 
-func setAddText(text):
-	AddIcon.setText(text)
+func setAddText(addText):
+	AddIcon.setText(addText)
 
 
 func addButtonClicked():
-	LabelList.addLabel("New Label")
+	get_parent().addButtonClicked
